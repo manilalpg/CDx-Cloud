@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en-gb" dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <title>Cloud &amp; Intelligent Platforms - CDx</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root{--bg-dark:#15161B;--bg-navy:#0E0024;--bg-light:#F9F7FB;--bg-white:#FFFFFF;--accent-red:#FF4040;--text-primary:#0E0024;--text-body:#333333;--text-cc:#CCCCCC}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;font-size:14px;line-height:1.4;color:var(--text-body);background:#fff}
+    h1{font-size:clamp(36px,5vw,70px);font-weight:800;line-height:1.15}
+    h2{font-size:clamp(26px,3.5vw,48px);font-weight:800;line-height:1.2}
+    h3{font-size:clamp(22px,2.5vw,36px);font-weight:800;line-height:1.3}
+    h4{font-size:clamp(17px,2vw,22px);font-weight:700;line-height:1.4}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    ul{list-style:none}
+    .container{max-width:1320px;margin:0 auto;padding:0 28px}
+
+    /* HEADER */
+    #hdr{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--bg-navy);border-bottom:1px solid rgba(255,255,255,.07)}
+    #hdr .inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.5px}.logo span{color:var(--accent-red)}
+    .nav{display:flex;gap:26px;align-items:center}
+    .nav a{color:#fff;font-size:13px;font-weight:500;transition:color .2s}.nav a:hover,.nav a.active{color:var(--accent-red)}
+    .btn-c{background:#000;color:#fff!important;border:1px solid rgba(255,255,255,.2);border-radius:30px;padding:9px 22px;font-size:13px;font-weight:500}
+    .sph{height:64px}
+
+    /* PILL */
+    .pill{display:inline-flex;align-items:center;gap:6px;background:var(--accent-red);color:#fff;border-radius:40px;padding:4px 16px;font-size:12px;font-weight:600;margin-bottom:12px}
+
+    /* HERO */
+    #hero{background:var(--bg-dark);padding-top:52px}
+    .hero-top{text-align:center;padding-bottom:26px}
+    .hero-top h1{color:#fff}
+    .slider-wrap{overflow:hidden}
+    .slider-track{display:flex;transition:transform .85s cubic-bezier(.25,.8,.25,1)}
+    .slide{flex:0 0 100%;min-width:100%;position:relative;height:clamp(320px,27vw,430px);overflow:hidden}
+    .slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+    .slide-bg::after{content:'';position:absolute;inset:0;background:rgba(21,22,27,.58)}
+    .sc{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px;max-width:800px;margin:0 auto}
+    .sc h2{color:#fff;font-size:clamp(20px,2.6vw,34px);font-weight:800;text-transform:uppercase;margin-bottom:16px;line-height:1.15}
+    .sc p{color:rgba(255,255,255,.85);font-size:15px;line-height:1.65;margin-bottom:24px;max-width:620px}
+    .sbtn{background:#000;color:#fff;border:1px solid var(--accent-red);border-radius:30px;padding:12px 30px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;transition:background .25s}.sbtn:hover{background:var(--accent-red)}
+    .sdots{display:flex;justify-content:center;gap:8px;padding:18px 0 26px}
+    .sdot{width:20px;height:3px;background:rgba(255,255,255,.3);cursor:pointer;transition:width .4s,background .4s}.sdot.active{width:45px;background:var(--accent-red)}
+
+    /* INTRO */
+    #intro{background:var(--bg-light);padding:68px 0 40px}
+    .ig{display:grid;grid-template-columns:5fr 7fr;gap:48px}
+    .ig-l h2{font-size:clamp(18px,1.9vw,24px);font-weight:500;color:var(--text-primary);line-height:1.5}
+    .ig-r p{font-size:16px;line-height:1.7;margin-bottom:14px}
+    @media(max-width:767px){.ig{grid-template-columns:1fr}}
+
+    /* STATS */
+    #stats{background:var(--bg-dark) url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80') no-repeat center/cover fixed;position:relative;padding:76px 0}
+    #stats::before{content:'';position:absolute;inset:0;background:rgba(21,22,27,.8)}
+    #stats .container{position:relative;z-index:2}
+    .sl{color:#ccc;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+    .sh{color:#fff;font-size:clamp(18px,2.6vw,42px);font-weight:500;line-height:1.15;letter-spacing:-.5px;margin-bottom:32px}
+    .sr{display:flex;flex-wrap:wrap;gap:16px}
+    .sc2{background:#fff;border-radius:10px;padding:20px 8px 24px;min-width:130px;flex:1 0 110px;text-align:center}
+    .sn{color:var(--accent-red);font-size:clamp(26px,3.2vw,42px);font-weight:500;line-height:1.2;display:block}
+    .stl{color:var(--bg-dark);font-size:11px;line-height:1.35;margin-top:8px;display:block}
+
+    /* ════════════════════════════════════════
+       OFFERING SECTIONS
+    ════════════════════════════════════════ */
+    .os{padding:84px 0}
+    .os.bg-w{background:#fff}
+    .os.bg-l{background:var(--bg-light)}
+
+    /* Section header grid */
+    .osh{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-bottom:44px}
+    @media(max-width:767px){.osh{grid-template-columns:1fr}}
+    .osnum{font-size:68px;font-weight:900;color:var(--accent-red);opacity:.1;line-height:1;margin-bottom:-8px}
+    .ostitle{font-size:clamp(24px,2.8vw,38px);font-weight:800;color:var(--text-primary);margin-bottom:14px;line-height:1.15}
+    .osdesc{font-size:15px;line-height:1.7;color:var(--text-body);margin-bottom:24px}
+    .os-ctas{display:flex;flex-wrap:wrap;gap:10px}
+    .cta-p{background:#000;color:#fff;border:1px solid var(--accent-red);border-radius:30px;padding:11px 26px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:7px;transition:background .2s}.cta-p:hover{background:var(--accent-red)}
+    .cta-s{background:transparent;color:var(--accent-red);border:1px solid var(--accent-red);border-radius:30px;padding:11px 26px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:7px;transition:background .2s,color .2s}.cta-s:hover{background:var(--accent-red);color:#fff}
+    .ostags{display:flex;flex-wrap:wrap;gap:8px;padding-top:8px}
+    .ostag{background:rgba(255,64,64,.08);color:var(--accent-red);border:1px solid rgba(255,64,64,.22);border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700}
+    .tags-lbl{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#aaa;margin-bottom:12px}
+
+    /* TABS */
+    .tnav{display:flex;flex-wrap:wrap;border-bottom:2px solid #e4e4ec}
+    .tbtn{background:none;border:none;padding:13px 20px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;color:#999;cursor:pointer;position:relative;transition:color .2s;white-space:nowrap}
+    .tbtn::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:3px;background:var(--accent-red);transform:scaleX(0);transition:transform .25s}
+    .tbtn.active{color:var(--text-primary)}.tbtn.active::after{transform:scaleX(1)}.tbtn:hover{color:var(--text-primary)}
+    .tpanel{display:none;animation:fi .35s ease}.tpanel.active{display:block}
+    @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Panel inner */
+    .pi{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;padding:32px;background:#fff;border:1px solid #e4e4ec;border-top:none;border-radius:0 0 14px 14px}
+    .os.bg-l .pi{background:#fff}
+    @media(max-width:767px){.pi{grid-template-columns:1fr;padding:22px}}
+    .pico{width:52px;height:52px;background:rgba(255,64,64,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+    .pico i{font-size:22px;color:var(--accent-red)}
+    .ptitle{font-size:19px;font-weight:700;color:var(--text-primary);margin-bottom:10px;line-height:1.3}
+    .pdesc{font-size:13px;line-height:1.7;color:var(--text-body);margin-bottom:16px}
+    .hlbl{font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#aaa;margin-bottom:12px}
+    .hlist{display:flex;flex-direction:column;gap:9px}
+    .hi{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:var(--bg-light);border-radius:9px;border-left:3px solid var(--accent-red)}
+    .os.bg-l .hi{background:#f0eef5}
+    .hi i{color:var(--accent-red);font-size:13px;margin-top:2px;flex-shrink:0}
+    .hi div strong{color:var(--text-primary);font-size:12px;display:block;margin-bottom:2px}
+    .hi div span{font-size:12px;line-height:1.5;color:var(--text-body)}
+    .abadge{display:inline-flex;align-items:center;gap:7px;background:var(--bg-dark);color:#fff;border-radius:7px;padding:7px 13px;font-size:11px;font-weight:700;margin-top:14px}
+    .abadge i{color:var(--accent-red)}
+
+    /* DIFFERENTIATORS */
+    #diff{background:#fff;padding:80px 0}
+    .dg{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    @media(max-width:767px){.dg{grid-template-columns:1fr}}
+    .cap img{border-radius:20px;width:100%;height:460px;object-fit:cover}
+    .ag{display:flex;flex-direction:column;gap:0}
+    .ap{border:1px solid #D5D7E0;border-radius:4px;margin-bottom:10px;background:#fff;overflow:hidden}
+    .ah{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:17px 20px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--text-primary);text-align:left}
+    .ah.open{background:var(--bg-light)}
+    .ai2{color:var(--accent-red);border:1px solid var(--accent-red);border-radius:50%;width:21px;height:21px;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;transition:transform .3s}
+    .ah.open .ai2{transform:rotate(45deg)}
+    .ab{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .ab.open{max-height:300px}
+    .abi{padding:0 20px 14px;font-size:13px;line-height:1.7;color:var(--text-body)}
+    .abi ul{padding-left:16px;list-style:disc;margin-top:6px}.abi ul li{margin-bottom:4px}
+
+    /* RESOURCES */
+    #res{background:var(--bg-light);padding:70px 0 88px}
+    .rg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+    @media(max-width:767px){.rg{grid-template-columns:1fr}}
+    .rc{background:#fff;border-radius:14px;overflow:hidden;transition:box-shadow .3s}.rc:hover{box-shadow:0 8px 26px rgba(0,0,0,.1)}
+    .rc img{width:100%;height:185px;object-fit:cover;border-radius:14px 14px 0 0;transition:border-radius .4s}.rc:hover img{border-radius:0}
+    .rb{padding:18px}
+    .rcat{display:inline-block;border:1px solid var(--accent-red);border-radius:50px;padding:3px 12px;font-size:10px;font-weight:800;text-transform:uppercase;color:#000;margin-bottom:9px;transition:background .2s,color .2s}.rc:hover .rcat{background:var(--accent-red);color:#fff}
+    .rt{font-size:14px;font-weight:600;color:var(--text-primary);line-height:1.4}
+    .dr{text-align:right;margin-top:32px}
+    .db{display:inline-flex;align-items:center;gap:8px;background:#000;color:#fff;border:1px solid var(--accent-red);border-radius:30px;padding:13px 26px;font-size:12px;font-weight:700;transition:background .2s}.db:hover{background:var(--accent-red)}
+
+    /* INDUSTRY */
+    #ind{background:rgba(255,255,255,.7);padding:30px 0 58px}
+    .indg{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
+    @media(max-width:767px){.indg{grid-template-columns:1fr}}
+    .indc{text-align:center;padding:22px;background:#fff;border-radius:14px}
+    .indc img{width:58px;margin:0 auto 14px}
+    .indc h4{font-size:16px;font-weight:700;color:#000;margin-bottom:7px}
+    .indc p{font-size:12px;line-height:1.5;color:var(--text-body)}
+
+    /* FOOTER */
+    #ft{background:var(--bg-dark)}
+    .fti{padding:96px 0 10px}
+    .ftg{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:30px;margin-bottom:56px}
+    @media(max-width:767px){.ftg{grid-template-columns:1fr 1fr}}
+    .ftlogo{font-size:17px;font-weight:800;color:#fff;display:block;margin-bottom:14px}.ftlogo span{color:var(--accent-red)}
+    .fttag{color:var(--text-cc);font-size:12px;line-height:1.6}
+    .ftct{color:var(--accent-red);font-size:13px;font-weight:600;margin-bottom:18px;display:block}
+    .ftl li{border-bottom:1px solid rgba(249,247,251,.3);width:70%;margin-top:5px}
+    .ftl li a{color:var(--text-cc);font-size:12px;padding:0 0 7px;display:block;transition:color .2s}.ftl li a:hover{color:#fff}
+    .soc{display:flex;gap:16px;margin-top:18px}
+    .soc a{color:var(--text-cc);font-size:16px;transition:color .2s}.soc a:hover{color:#fff}
+    .ftb{border-top:1px solid rgba(249,247,251,.4);padding:18px 0 26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .ftb p,.ftb a{color:#ccc;font-size:11px}
+    .ftbl{display:flex;gap:18px}.ftbl a:hover{color:#fff}
+
+    /* SCROLL UP */
+    .sup{position:fixed;bottom:28px;right:28px;z-index:999;background:var(--accent-red);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:0;pointer-events:none;transition:opacity .3s}
+    .sup.vis{opacity:1;pointer-events:auto}
+
+    /* FADE IN */
+    .fi2{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
+    .fi2.vis{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="sph"></div>
+<header id="hdr">
+  <div class="container inner">
+    <a href="#" class="logo">ibs<span>software</span></a>
+    <nav class="nav">
+      <a href="#" class="active">Solutions ▾</a>
+      <a href="#">Industries ▾</a>
+      <a href="#">Insights</a>
+      <a href="#">Company ▾</a>
+      <a href="#" class="btn-c">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-top container fi2">
+    <div style="text-align:center;margin-bottom:16px;"><span style="color:#fff;font-size:12px;font-weight:600;letter-spacing:1px;">&#9679; SOLUTIONS</span></div>
+    <h1 style="color:#fff;text-align:center;">Cloud &amp; Intelligent Platforms</h1>
+  </div>
+  <div class="slider-wrap" style="margin-top:26px;">
+    <div class="slider-track" id="st">
+      <div class="slide"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80');"></div><div class="sc"><h2>Intelligent Cloud Ops — 24/7 Resilience</h2><p>Ensure mission-critical stability through a global AIOps Command Center, SRE principles, and AI-platform self-healing infrastructure.</p><a href="#o1" class="sbtn">Explore</a></div></div>
+      <div class="slide"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80');"></div><div class="sc"><h2>Real-Time Streaming at Sub-Second Latency</h2><p>Build high-performance streaming architectures powering context-aware autonomous AI agents and system-wide automation.</p><a href="#o2" class="sbtn">Explore</a></div></div>
+      <div class="slide"><div class="slide-bg" style="background-image:url('https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1600&q=80');"></div><div class="sc"><h2>Security Ops &amp; Assurance — Always-On</h2><p>Establish resilient digital ecosystems through 24/7 monitoring, CREST-certified SOC, and AI-infrastructure security frameworks.</p><a href="#o4" class="sbtn">Explore</a></div></div>
+    </div>
+    <div class="sdots" id="sdots">
+      <div class="sdot active" data-i="0"></div><div class="sdot" data-i="1"></div><div class="sdot" data-i="2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section id="intro"><div class="container"><div class="ig fi2">
+  <div class="ig-l"><h2>Transforming Travel's Future Through AI-Powered Cloud Infrastructure, Intelligent Platforms, and Mission-Critical Operational Excellence.</h2></div>
+  <div class="ig-r">
+    <p>Cloud infrastructure is no longer just a cost-efficiency lever — it is the foundation of competitive differentiation. Our Cloud &amp; Intelligent Platforms practice combines deep travel domain expertise, AIOps engineering, real-time streaming mastery, and cloud-native security to build platforms that are mission-critical by design.</p>
+    <p>From AI-accelerated migration and self-healing infrastructure to sub-second streaming pipelines and CREST-certified security operations, every engagement delivers measurable outcomes across availability, velocity, and intelligence.</p>
+  </div>
+</div></div></section>
+
+<!-- STATS -->
+<section id="stats"><div class="container fi2">
+  <p class="sl">DELIVERING VALUE</p>
+  <div class="sh">Proven cloud impact,<br>accelerated at scale</div>
+  <div class="sr">
+    <div class="sc2"><span class="sn" data-target="40" data-suffix="%">0%</span><span class="stl">Reduction in infrastructure costs</span></div>
+    <div class="sc2"><span class="sn" data-target="99.99" data-suffix="%">0%</span><span class="stl">Uptime for mission-critical systems</span></div>
+    <div class="sc2"><span class="sn" data-target="3" data-suffix="x">0x</span><span class="stl">Faster cloud migration timelines</span></div>
+    <div class="sc2"><span class="sn" data-target="60" data-suffix="%">0%</span><span class="stl">Reduction in manual toil</span></div>
+    <div class="sc2"><span class="sn">&lt;50ms</span><span class="stl">Streaming event latency</span></div>
+    <div class="sc2"><span class="sn">24/7</span><span class="stl">CREST-certified security</span></div>
+  </div>
+</div></section>
+
+<!-- ════════════════════════════════════════════════
+     OFFERING 1 — INTELLIGENT CLOUD OPS
+════════════════════════════════════════════════ -->
+<section class="os bg-w" id="o1"><div class="container">
+  <div class="osh fi2">
+    <div>
+      <div class="osnum">01</div>
+      <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> KEY OFFERING</span>
+      <h2 class="ostitle">Intelligent Cloud Ops</h2>
+      <p class="osdesc">Ensure 24/7 resilience through a global Command Center powered by AIOps and SRE principles. Maintain mission-critical stability for booking systems and high-availability AI inference endpoints by monitoring domain-specific KPIs. Eliminate manual toil through Cloud FinOps, DevSecOps, and standardized reliability playbooks. Accelerated through CREST-certified operations.</p>
+      <div class="os-ctas">
+        <a href="#" class="cta-p"><i class="fas fa-book-open"></i> Read Blog</a>
+      </div>
+    </div>
+    <div>
+      <p class="tags-lbl">Capabilities at a glance</p>
+      <div class="ostags">
+        <span class="ostag">AIOps</span><span class="ostag">SRE Principles</span><span class="ostag">Cloud FinOps</span><span class="ostag">DevSecOps</span><span class="ostag">CREST Certified</span><span class="ostag">Reliability Playbooks</span>
+      </div>
+    </div>
+  </div>
+  <div class="fi2" style="transition-delay:.12s;">
+    <div class="tnav">
+      <button class="tbtn active" data-t="o1t0">AIOps Command Center</button>
+      <button class="tbtn" data-t="o1t1">SRE &amp; Reliability</button>
+      <button class="tbtn" data-t="o1t2">DevSecOps Integration</button>
+      <button class="tbtn" data-t="o1t3">Cloud FinOps</button>
+    </div>
+    <div>
+      <div class="tpanel active" id="o1t0"><div class="pi">
+        <div><div class="pico"><i class="fas fa-tower-broadcast"></i></div><h4 class="ptitle">AIOps Command Center</h4><p class="pdesc">A global, always-on command center using AI-driven observability to detect, correlate, and resolve incidents before they impact traveler-facing systems. Monitors domain-specific KPIs across booking engines, loyalty platforms, and AI inference endpoints in real time.</p><div class="abadge"><i class="fas fa-bolt"></i> CREST-Certified Operations</div></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Real-time anomaly detection</strong><span>Correlates signals across 100+ monitoring streams simultaneously</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Domain-aware KPI tracking</strong><span>Monitors booking conversion, seat availability, and AI endpoint latency</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Automated runbook execution</strong><span>Standardized reliability playbooks trigger instant remediation</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Predictive capacity management</strong><span>Forecasts peak-season load to pre-scale infrastructure</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o1t1"><div class="pi">
+        <div><div class="pico"><i class="fas fa-shield-halved"></i></div><h4 class="ptitle">SRE &amp; Reliability Engineering</h4><p class="pdesc">Embed Site Reliability Engineering disciplines into every layer of your travel platform. Define SLOs, SLIs, and error budgets aligned to business outcomes — ensuring engineering decisions directly reflect traveler experience quality.</p></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>SLO/SLI framework setup</strong><span>Reliability targets tied to booking, check-in, and loyalty flows</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Error budget management</strong><span>Balances velocity of change with platform stability across release cycles</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Toil elimination programs</strong><span>Automates repetitive tasks to free engineers for innovation</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Post-incident learning</strong><span>Blameless retrospectives and structured remediation tracking</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o1t2"><div class="pi">
+        <div><div class="pico"><i class="fas fa-lock"></i></div><h4 class="ptitle">DevSecOps Integration</h4><p class="pdesc">Shift security left across the full delivery pipeline. Integrate automated scanning, compliance gates, and policy-as-code directly into CI/CD workflows so every release is secure by design — not by audit after the fact.</p></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Pipeline-native security gates</strong><span>SAST, DAST, and SCA integrated into every build and deploy step</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Policy-as-code enforcement</strong><span>Infrastructure compliance validated automatically before provisioning</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Secrets management</strong><span>Zero hard-coded credentials across cloud and on-premise workloads</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Continuous compliance reporting</strong><span>Audit-ready dashboards for PCI, GDPR, and aviation regulatory needs</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o1t3"><div class="pi">
+        <div><div class="pico"><i class="fas fa-coins"></i></div><h4 class="ptitle">Cloud FinOps</h4><p class="pdesc">Deliver continuous cloud cost governance across your entire estate — from compute and storage to AI inference and data workloads. Our Cloud FinOps practice embeds financial accountability into engineering workflows, using industry-leading tooling to provide real-time visibility, right-sizing recommendations, and anomaly alerting so cost optimisation becomes a daily discipline rather than a periodic exercise.</p><div class="abadge"><i class="fas fa-bolt"></i> FinOps Framework Aligned</div></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Full-estate cost visibility</strong><span>Unified dashboards across AWS, Azure, and GCP using tools such as CloudHealth, Apptio Cloudability, and native cloud cost explorers</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Right-sizing &amp; waste elimination</strong><span>Automated recommendations via tools like Spot.io and AWS Compute Optimizer to eliminate idle and over-provisioned resources</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Commitment &amp; reservation management</strong><span>Reserved Instance and Savings Plan optimisation to balance commitment coverage with workload flexibility</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Cost anomaly detection &amp; alerting</strong><span>Real-time spend monitoring with threshold-based escalation before overruns compound</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Chargeback &amp; showback reporting</strong><span>Team- and product-level cost attribution to drive accountability across engineering and business units</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>FinOps culture enablement</strong><span>Training, governance frameworks, and KPI dashboards that embed cost awareness into every engineering team's workflow</span></div></div>
+        </div></div>
+      </div></div>
+
+    </div>
+  </div>
+</div></section>
+
+<!-- ════════════════════════════════════════════════
+     OFFERING 2 — REAL-TIME STREAMING
+════════════════════════════════════════════════ -->
+<section class="os bg-l" id="o2"><div class="container">
+  <div class="osh fi2">
+    <div>
+      <div class="osnum">02</div>
+      <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> KEY OFFERING</span>
+      <h2 class="ostitle">Real-Time Streaming &amp; Processing</h2>
+      <p class="osdesc">Build high-performance streaming architectures to process massive data volumes at sub-second latency. Enable real-time event ingestion and Vector Database synchronization to power context-aware autonomous AI agents and instantaneous system-wide automation. Drive rapid decision-making through high-velocity pipelines that move live traveler data into active AI context windows. Accelerated through StreamJet with prebuilt patterns and standardized connectors.</p>
+      <div class="os-ctas">
+        <a href="#" class="cta-p"><i class="fas fa-book-open"></i> Read Blog</a>
+      </div>
+    </div>
+    <div>
+      <p class="tags-lbl">Capabilities at a glance</p>
+      <div class="ostags">
+        <span class="ostag">Event Streaming</span><span class="ostag">Vector DB Sync</span><span class="ostag">AI Agents</span><span class="ostag">&lt;50ms Latency</span><span class="ostag">StreamJet</span><span class="ostag">Kafka / Flink</span><span class="ostag">Real-Time AI</span>
+      </div>
+    </div>
+  </div>
+  <div class="fi2" style="transition-delay:.12s;">
+    <div class="tnav">
+      <button class="tbtn active" data-t="o2t0">StreamJet Kafka Offering</button>
+      <button class="tbtn" data-t="o2t1">StreamJet Flink Offering</button>
+    </div>
+    <div>
+      <div class="tpanel active" id="o2t0"><div class="pi">
+        <div><div class="pico"><i class="fas fa-wave-square"></i></div><h4 class="ptitle">StreamJet Kafka Offering</h4><p class="pdesc">Deploy enterprise-grade Apache Kafka clusters accelerated by StreamJet — processing millions of traveler events per second with guaranteed delivery, ordering, and zero data loss. Prebuilt airline connectors and schema governance eliminate weeks of integration work, enabling sub-100ms event pipelines from PSS, DCS, loyalty, and cargo systems into your real-time data fabric.</p><div class="abadge"><i class="fas fa-bolt"></i> Powered by StreamJet</div></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Multi-source event unification</strong><span>Ingests from PSS, DCS, loyalty, cargo, and third-party systems simultaneously</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Schema registry governance</strong><span>Ensures consistent event contracts across all producers and consumers</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Dead-letter queue management</strong><span>Ensures zero data loss even during downstream service disruptions</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Sub-100ms end-to-end latency</strong><span>Optimized Kafka topologies for airline operational SLAs</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o2t1"><div class="pi">
+        <div><div class="pico"><i class="fas fa-microchip"></i></div><h4 class="ptitle">StreamJet Flink Offering</h4><p class="pdesc">Harness Apache Flink's stateful stream processing capabilities through StreamJet's prebuilt travel-domain patterns — enabling complex event processing, real-time AI agent enablement at scale. Transform live traveler data streams into intelligent, context-aware decisions with millisecond precision and full auditability.</p><div class="abadge"><i class="fas fa-bolt"></i> Powered by StreamJet</div></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Stateful stream processing</strong><span>Complex event processing and windowed aggregations across live traveler streams</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>AI agent event backbone</strong><span>Continuously populates agent context with latest traveler and flight events</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Multi-agent coordination</strong><span>Event-driven orchestration across fleets of specialized sub-agents</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>20+ pattern library</strong><span>Battle-tested Flink topologies for common travel use cases</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Agent observability</strong><span>Full tracing of reasoning chains and tool invocations for auditability</span></div></div>
+        </div></div>
+      </div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ════════════════════════════════════════════════
+     OFFERING 3 — AI-NATIVE CLOUD MIGRATION
+════════════════════════════════════════════════ -->
+<section class="os bg-w" id="o3"><div class="container">
+  <div class="osh fi2">
+    <div>
+      <div class="osnum">03</div>
+      <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> KEY OFFERING</span>
+      <h2 class="ostitle">AI-Native Cloud Migration</h2>
+      <p class="osdesc">Execute seamless transitions through a multi-agent framework that automates infrastructure mapping and migration execution. Eliminate manual risk and accelerate timelines by leveraging AI-driven discovery to transition from legacy systems to AI-native, AI-platform optimized architectures. Move to modern cloud environments pre-configured for large-scale model serving and distributed workloads with embedded security. Accelerated through CloudIntel, a specialized AI Agent and MCP-enabled accelerator.</p>
+      <div class="os-ctas">
+        <a href="#" class="cta-p"><i class="fas fa-book-open"></i> Read Blog</a>
+      </div>
+    </div>
+    <div>
+      <p class="tags-lbl">Capabilities at a glance</p>
+      <div class="ostags">
+        <span class="ostag">Multi-Agent Migration</span><span class="ostag">AI Discovery</span><span class="ostag">Zero Downtime</span><span class="ostag">Legacy Modernization</span><span class="ostag">CloudIntel</span><span class="ostag">Model Serving Ready</span><span class="ostag">Embedded Security</span>
+      </div>
+    </div>
+  </div>
+  <div class="fi2" style="transition-delay:.12s;">
+    <div class="tnav">
+      <button class="tbtn active" data-t="o3t0">AI-Driven Discovery &amp; Mapping</button>
+      <button class="tbtn" data-t="o3t2">AI-Optimized Architecture</button>
+      <button class="tbtn" data-t="o3t3">CloudIntel Accelerator</button>
+    </div>
+    <div>
+      <div class="tpanel active" id="o3t0"><div class="pi">
+        <div><div class="pico"><i class="fas fa-magnifying-glass-chart"></i></div><h4 class="ptitle">AI-Driven Discovery &amp; Mapping</h4><p class="pdesc">Replace weeks of manual assessment with AI agents that automatically discover, catalogue, and map every component of your legacy travel infrastructure — including undocumented dependencies, data flows, and integration touchpoints across PSS, DCS, and cargo systems.</p></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Automated dependency mapping</strong><span>Discovers hidden service dependencies that manual assessments routinely miss</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Data lineage tracing</strong><span>Maps data flows from source to destination across the full estate</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Risk stratification</strong><span>Classifies workloads by migration complexity and business criticality</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Wave planning automation</strong><span>Generates optimised migration waves that minimise disruption risk</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o3t2"><div class="pi">
+        <div><div class="pico"><i class="fas fa-sitemap"></i></div><h4 class="ptitle">AI-Optimized Target Architecture</h4><p class="pdesc">Design target cloud architectures purpose-built for AI workloads from day one — with GPU node pools, vector-enabled databases, distributed inference clusters, and observability stacks pre-configured for the demands of modern travel AI.</p></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>GPU-ready infrastructure</strong><span>Pre-configured node pools for large-scale model serving workloads</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Distributed inference architecture</strong><span>Horizontal scaling patterns for high-concurrency AI inference</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Embedded security posture</strong><span>Zero-trust networking and encryption by default from day one</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Multi-region resilience</strong><span>Active-active configurations for airline global operational requirements</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o3t3"><div class="pi">
+        <div><div class="pico"><i class="fas fa-cloud-arrow-up"></i></div><h4 class="ptitle">CloudIntel Accelerator</h4><p class="pdesc">Our proprietary AI Agent and MCP-enabled migration accelerator that packages the full discovery-to-execution workflow into a reusable platform — dramatically cutting assessment time and eliminating the manual effort that causes most cloud migrations to exceed scope and budget.</p><div class="abadge"><i class="fas fa-bolt"></i> CloudIntel MCP Agent</div></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>MCP-enabled tool orchestration</strong><span>Coordinates discovery, planning, and execution through a single control plane</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>3× faster assessment cycles</strong><span>AI replaces weeks of manual estate analysis with hours of automated discovery</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Prebuilt travel system connectors</strong><span>Native integrations with Amadeus, Sabre, SITA, and AeroCRS</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Live migration intelligence</strong><span>Real-time dashboards track progress, risk, and quality across all waves</span></div></div>
+        </div></div>
+      </div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ════════════════════════════════════════════════
+     OFFERING 4 — SECURITY OPS & ASSURANCE
+════════════════════════════════════════════════ -->
+<section class="os bg-l" id="o4"><div class="container">
+  <div class="osh fi2">
+    <div>
+      <div class="osnum">04</div>
+      <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> KEY OFFERING</span>
+      <h2 class="ostitle">Security Ops &amp; Assurance</h2>
+      <p class="osdesc">Establish resilient digital ecosystems through 24/7 monitoring, incident response, and rigorous penetration testing. Enable advanced anomaly detection and auditing to maintain a proactive posture across APIs and infrastructure. Drive compliance through AI-infrastructure security frameworks and risk mitigation. Accelerated through CREST-certified SOC and Pen Test services.</p>
+      <div class="os-ctas">
+        <a href="#" class="cta-p"><i class="fas fa-book-open"></i> Read Blog</a>
+      </div>
+    </div>
+    <div>
+      <p class="tags-lbl">Capabilities at a glance</p>
+      <div class="ostags">
+        <span class="ostag">CREST SOC</span><span class="ostag">Pen Testing</span><span class="ostag">Anomaly Detection</span><span class="ostag">API Security</span><span class="ostag">AI Security</span><span class="ostag">PCI / GDPR</span><span class="ostag">Zero-Trust</span>
+      </div>
+    </div>
+  </div>
+  <div class="fi2" style="transition-delay:.12s;">
+    <div class="tnav">
+      <button class="tbtn active" data-t="o4t1">Penetration Testing</button>
+      <button class="tbtn" data-t="o4t2">Anomaly Detection &amp; Auditing</button>
+    </div>
+    <div>
+      <div class="tpanel active" id="o4t1"><div class="pi">
+        <div><div class="pico"><i class="fas fa-user-secret"></i></div><h4 class="ptitle">Penetration Testing</h4><p class="pdesc">CREST-certified penetration testing across web applications, APIs, cloud infrastructure, and internal networks. Simulates real-world attacker behaviour against your travel platforms to surface exploitable vulnerabilities before adversaries do.</p><div class="abadge"><i class="fas fa-certificate"></i> CREST-Certified Pen Test</div></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>API-first testing methodology</strong><span>Deep assessment of REST, GraphQL, and legacy SOAP endpoints across PSS/DCS</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Cloud infrastructure testing</strong><span>Misconfiguration hunting across AWS, Azure, and GCP environments</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Red team exercises</strong><span>Full adversarial simulation with social engineering and lateral movement</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Remediation validation</strong><span>Re-test confirms fixes are effective before the next release cycle</span></div></div>
+        </div></div>
+      </div></div>
+
+      <div class="tpanel" id="o4t2"><div class="pi">
+        <div><div class="pico"><i class="fas fa-chart-line"></i></div><h4 class="ptitle">Anomaly Detection &amp; API Auditing</h4><p class="pdesc">Machine learning-driven anomaly detection across every API gateway and infrastructure layer, continuously learning what "normal" looks like for booking volumes, loyalty transactions, and cargo manifests — alerting instantly when patterns deviate.</p></div>
+        <div><p class="hlbl">Key Highlights</p><div class="hlist">
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Behavioural baseline modelling</strong><span>Adapts to seasonal booking patterns and airline operational rhythms</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>API traffic analysis</strong><span>Detects credential stuffing, scraping, and data exfiltration in real-time</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Full API audit trail</strong><span>Immutable logs of every API call for regulatory and forensic purposes</span></div></div>
+          <div class="hi"><i class="fas fa-check-circle"></i><div><strong>Low false-positive tuning</strong><span>Domain context reduces alert fatigue without missing genuine threats</span></div></div>
+        </div></div>
+      </div></div>
+
+  
+    </div>
+  </div>
+</div></section>
+
+<!-- WHAT SETS US APART -->
+<section id="diff"><div class="container">
+  <div style="text-align:center;margin-bottom:44px;" class="fi2">
+    <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> DIFFERENTIATORS</span>
+    <h2 style="color:var(--text-primary);margin-top:8px;">What sets us apart</h2>
+  </div>
+  <div class="dg fi2" style="transition-delay:.1s;">
+    <div>
+      <div class="ag">
+        <div class="ap"><button class="ah open" data-g="m" data-i="0"><span>Domain-led cloud engineering</span><span class="ai2"><i class="fas fa-times"></i></span></button><div class="ab open"><div class="abi">Experience across reservations, passenger services, crew, cargo, and loyalty allows translation of business intent into cloud architecture decisions — with zero domain ramp-up cost for our engineers.</div></div></div>
+        <div class="ap"><button class="ah" data-g="m" data-i="2"><span>Centralised Command and Control Center</span><span class="ai2"><i class="fas fa-plus"></i></span></button><div class="ab"><div class="abi">A unified, always-on command and control center providing full-spectrum visibility across all cloud platforms, streaming pipelines, and AI inference workloads. Combines real-time telemetry, automated incident orchestration, and domain-aware dashboards to ensure mission-critical travel systems remain resilient at all times.</div></div></div>
+        <div class="ap"><button class="ah" data-g="m" data-i="3"><span>CREST-certified security assurance</span><span class="ai2"><i class="fas fa-plus"></i></span></button><div class="ab"><div class="abi">Our CREST-certified SOC and penetration testing capabilities ensure cloud platforms meet the strictest regulatory and compliance standards across aviation and hospitality.</div></div></div>
+        <div class="ap"><button class="ah" data-g="m" data-i="5"><span>Accelerators and tools-led platform engineering and cloud ops</span><span class="ai2"><i class="fas fa-plus"></i></span></button><div class="ab"><div class="abi">Every engagement is underpinned by a library of proprietary accelerators — StreamJet for real-time streaming, CloudIntel for AI-driven migration, and standardized reliability playbooks for cloud ops. Purpose-built tooling reduces delivery timelines, eliminates repetitive engineering effort, and ensures consistent, production-grade outcomes across platform engineering and cloud operations.</div></div></div>
+      </div>
+    </div>
+    <div><div class="cap"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80" alt="Cloud engineering"></div></div>
+  </div>
+</div></section>
+
+<!-- RESOURCES -->
+<section id="res"><div class="container">
+  <div class="fi2">
+    <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> LATEST RESOURCES</span>
+    <h2 style="color:var(--text-primary);margin-top:8px;">Discover valuable insights</h2>
+  </div>
+  <div class="rg fi2" style="transition-delay:.1s;">
+    <div class="rc"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt=""><div class="rb"><span class="rcat">Blog</span><div class="rt">Cloud refactoring: Three strategic considerations to align technology with enterprise vision</div></div></div>
+    <div class="rc"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt=""><div class="rb"><span class="rcat">Blog</span><div class="rt">How AIOps is transforming airline IT operations and reducing unplanned downtime</div></div></div>
+    <div class="rc"><img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&q=80" alt=""><div class="rb"><span class="rcat">Case Study</span><div class="rt">Securing cloud-native travel platforms: A proactive approach to AI-era cyber resilience</div></div></div>
+  </div>
+  <div class="dr fi2" style="transition-delay:.2s;"><a href="#" class="db">Discover More <i class="fas fa-chevron-right"></i></a></div>
+</div></section>
+
+<!-- INDUSTRY -->
+<section id="ind"><div class="container">
+  <div class="fi2" style="text-align:center;margin-bottom:8px;">
+    <span class="pill"><i class="fas fa-circle" style="font-size:8px;"></i> DISCOVER OUR INDUSTRY EDGE</span>
+    <h3 style="color:var(--text-primary);margin-top:8px;font-size:clamp(22px,2.8vw,40px);line-height:1.2;">Transformative industry solutions that power growth and resilience</h3>
+  </div>
+  <div class="indg fi2" style="transition-delay:.1s;">
+    <div class="indc"><img src="https://staging.ibsindia.com/cdx-demo/images/icons/airline-retailing.svg" alt=""><h4>Airline Retailing</h4><p>Reimagine airline retail through personalized, agile, and scalable digital solutions.</p></div>
+    <div class="indc"><img src="https://staging.ibsindia.com/cdx-demo/images/icons/airline-operations.svg" alt=""><h4>Airline Operations</h4><p>Transform operations, optimize resources, and harness AI-driven insights at scale.</p></div>
+    <div class="indc"><img src="https://staging.ibsindia.com/cdx-demo/images/icons/airports.svg" alt=""><h4>Airports</h4><p>Optimize airport operations with AI-driven innovations and elevated passenger experiences.</p></div>
+    <div class="indc"><img src="https://staging.ibsindia.com/cdx-demo/images/icons/cargo-logistics.svg" alt=""><h4>Cargo &amp; Logistics</h4><p>Deliver new-age cargo solutions that optimize operations and drive transformation.</p></div>
+    <div class="indc"><img src="https://staging.ibsindia.com/cdx-demo/images/icons/hospitality-cruises.svg" alt=""><h4>Hospitality &amp; Cruises</h4><p>Modernize hospitality and cruise operations with cloud-native solutions.</p></div>
+    <div class="indc"><img src="https://staging.ibsindia.com/cdx-demo/images/icons/online-travel-agencies.svg" alt=""><h4>Online Travel Agencies</h4><p>Enable digital innovation and enhance customer experiences for modern travel platforms.</p></div>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer id="ft"><div class="container"><div class="fti">
+  <div class="ftg">
+    <div><span class="ftlogo">ibs<span>software</span></span><p class="fttag">We deliver innovative solutions that drive sustainable growth and success for you.</p></div>
+    <div><span class="ftct">Company</span><ul class="ftl"><li><a href="#">Home</a></li><li><a href="#">Solutions</a></li><li><a href="#">Industries</a></li><li><a href="#">Insights</a></li><li><a href="#">About</a></li></ul></div>
+    <div><span class="ftct">Solutions</span><ul class="ftl"><li><a href="#">AI</a></li><li><a href="#">Customer Experience</a></li><li><a href="#">Data &amp; Insight</a></li><li><a href="#">Tech Transformation</a></li><li><a href="#">Digital Engineering</a></li><li><a href="#">Cloud Platforms</a></li><li><a href="#">SaaS &amp; Accelerators</a></li></ul></div>
+    <div><span class="ftct">Follow Us</span><div class="soc"><a href="#"><i class="fab fa-square-facebook"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+  </div>
+  <div class="ftb">
+    <p>Copyright &copy; 2026 CDx. All Rights Reserved.</p>
+    <div class="ftbl"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Sitemap</a><a href="#">Cookies Settings</a></div>
+  </div>
+</div></div></footer>
+
+<a href="#" class="sup" id="sup"><i class="fas fa-angle-up"></i></a>
+
+<script>
+/* SLIDER */
+(function(){const t=document.getElementById('st'),ds=document.querySelectorAll('.sdot');let c=0,tmr;function go(i){c=(i+4)%4;t.style.transform=`translateX(-${c*100}%)`;ds.forEach((d,j)=>d.classList.toggle('active',j===c));}function start(){tmr=setInterval(()=>go(c+1),6000)}function stop(){clearInterval(tmr)}ds.forEach(d=>{d.addEventListener('click',()=>{stop();go(+d.dataset.i);start();})});start();})();
+
+/* TABS */
+(function(){document.querySelectorAll('.tbtn').forEach(b=>{b.addEventListener('click',()=>{const tid=b.getAttribute('data-t');b.closest('.tnav').querySelectorAll('.tbtn').forEach(x=>x.classList.remove('active'));b.classList.add('active');b.closest('div').nextElementSibling.querySelectorAll('.tpanel').forEach(p=>p.classList.remove('active'));document.getElementById(tid).classList.add('active');});});})();
+
+/* ACCORDION */
+(function(){document.querySelectorAll('.ah').forEach(h=>{h.addEventListener('click',()=>{const g=h.getAttribute('data-g');const all=document.querySelectorAll(`.ah[data-g="${g}"]`);const was=h.classList.contains('open');all.forEach(x=>{x.classList.remove('open');x.querySelector('.ai2 i').className='fas fa-plus';x.nextElementSibling.classList.remove('open');});if(!was){h.classList.add('open');h.querySelector('.ai2 i').className='fas fa-times';h.nextElementSibling.classList.add('open');}});});})();
+
+/* COUNTERS */
+(function(){let done=false;const ns=document.querySelectorAll('.sn[data-target]');function run(){ns.forEach(el=>{const t=+el.getAttribute('data-target'),sfx=el.getAttribute('data-suffix')||'';if(t===99){let s=0;(function tick(){s=Math.min(s+t/80,t);el.textContent=s.toFixed(1)+sfx;if(s<t)requestAnimationFrame(tick);})();return;}let s=0;(function tick(){s=Math.min(s+t/80,t);el.textContent=Math.floor(s)+sfx;if(s<t)requestAnimationFrame(tick);else el.textContent=t+sfx;})();});}const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting&&!done){done=true;run();}});},{threshold:.3});const sec=document.getElementById('stats');if(sec)obs.observe(sec);})();
+
+/* SCROLL REVEAL */
+(function(){const els=document.querySelectorAll('.fi2');const obs=new IntersectionObserver(en=>{en.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.08});els.forEach(el=>obs.observe(el));})();
+
+/* SCROLL UP */
+(function(){const b=document.getElementById('sup');window.addEventListener('scroll',()=>b.classList.toggle('vis',scrollY>400));})();
+</script>
+</body>
+</html>
